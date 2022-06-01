@@ -8,15 +8,15 @@ The first line of the file is header. From the second line and on, each line is 
 
 The last field is the text of the command of the task. For demonstration purpose the task "executed" by printing the command field.
 
-In the beginning, an object of taskScheduler created with the name of the csv file as input to the constructor. After that, the start function called. This function call to:
+In the beginning, an object of `taskScheduler` created with the name of the csv file as input to the constructor. After that, the `start` function called. This function call to:
 * `readTasksAndSaveSorted` - function that read the csv file and store the tasks in sorted vector.
-* Than, launch a thread that run taskRunner function. This function run each task when the the specific time of the task arrived.
-* In order to listen to changes in the csv file, the listenOnFileChanges function is called. It listen to changes in the current directory, and when the tasks.csv file is changed, it terminate the thread that run taskRunner, read the csv file again, upate the vector of the tasks with the new task list and launch the thread that run the taskRunner from the beginning.
+* Than, launch a thread that run `taskRunner` function. This function run each task when the the specific time of the task arrived.
+* In order to listen to changes in the csv file, the `listenOnFileChanges` function is called. It listen to changes in the current directory, and when the tasks.csv file is changed, it terminate the thread that run `taskRunner`, read the csv file again, upate the vector of the tasks with the new task list and launch the thread that run the `taskRunner` from the beginning.
 
 ## How to use it
 1. Clone the repository
-2. Click on scheduler.sln file to open the Visual Studio solution (it was build on VS 2022).
+2. Click on `scheduler.sln` file to open the Visual Studio solution (it was build on VS 2022).
 3. Click on Run
 4. You can change the tasks.csv file on runtime and it will be updated with the new task list on runtime
 
-Note: if the csv file is not written correctly, the program will check it in readTasksAndSaveSorted function and will alert about it. If the csv file is incorrect when running the program, the program will stop and exit. If the csv file is correct when running the program but then changed to be incorrect, the thread of taskRunner will terminate and an alert will be shown on the console but the program will not exit. As soon as the csv file will changed again and will become correct, the thread of taskRunner will run from the beginning again.
+Note: if the csv file is not written correctly, the program will check it in `readTasksAndSaveSorted` function and will alert about it. If the csv file is incorrect when running the program, the program will stop and exit. If the csv file is correct when running the program but then changed to be incorrect, the thread of `taskRunner` will terminate and an alert will be shown on the console but the program will not exit. As soon as the csv file will changed again and will become correct, the thread of `taskRunner` will run from the beginning again.

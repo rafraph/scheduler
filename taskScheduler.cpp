@@ -280,8 +280,7 @@ void taskScheduler::start()
     {
         scheduler = thread{ &taskScheduler::taskRunner, this };
         scheduler.detach();
+        LPTSTR lpDir = const_cast<LPTSTR>(TEXT("."));// current directory    
+        listenOnFileChanges(lpDir, scheduler);
     }
-
-    LPTSTR lpDir = const_cast<LPTSTR>(TEXT("."));// current directory    
-    listenOnFileChanges(lpDir, scheduler);
 }

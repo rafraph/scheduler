@@ -3,6 +3,7 @@ c++ (version 14) program that demonstarte task scheduler from csv file
 
 ## How it Works
 This program read tasks from csv file and "execute" them.
+
 In this example the csv file is called, "tasks.csv".
 The first line of the file is header.
 Each line from the secong line is a task. 

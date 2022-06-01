@@ -5,13 +5,19 @@ c++ (version 14) program that demonstarte task scheduler from csv file
 This program read tasks from csv file and "execute" them.
 
 In this example the csv file is called, "tasks.csv".
+
 The first line of the file is header.
+
 Each line from the secong line is a task. 
+
 The first 3 fields of the task is the time (minute 0-59, hour 0-23) and day (0-6, where 0=Monday, 6=Sunday) the task should run.
+
 The last field is the text of the command of the task.
+
 For demonstration propose the task "executed" by printing the command field.
 
 In the beginning, the start function called. 
+
 This function call to:
 * readTasksAndSaveSorted - function that read the csv file and store the tasks in sorted vector
 * Than, launch a thread that run taskRunner function. This function run each task when the the specific time of the task arrived.
